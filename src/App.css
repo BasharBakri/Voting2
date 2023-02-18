@@ -1,0 +1,22 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #3c4043;
+  font-family: sans-serif;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #3c4043;
+}
+
+.candidateSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 5rem;
+}

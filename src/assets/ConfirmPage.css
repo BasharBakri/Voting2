@@ -1,0 +1,53 @@
+.confrimPageContainer {
+  height: 100dvh;
+  height: 100vh;
+}
+
+
+.confirmformContainer {
+  margin-top: 8rem;
+  width: 25vw;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+
+.confirmformContainer button {
+  background-color: #3c4043;
+  color: white;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 1rem;
+  margin-top: 1rem;
+}
+
+
+
+.confirmformContainer button:hover {
+  background-color: #000000;
+}
+
+.confirmformContainer button:active {
+  background-color: #3c4043;
+}
+
+#change {
+  background-color: white;
+  color: #3c4043;
+}
+
+#change:hover {
+  background-color: #000000;
+}
+
+#change:active {
+  background-color: #ffffff;
+}

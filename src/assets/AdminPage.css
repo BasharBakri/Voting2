@@ -1,0 +1,28 @@
+.AdminContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.tableContainer {
+  width: 60vw;
+  height: 70vh;
+  overflow: auto;
+
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  color: white;
+}
+
+td,
+th {
+  border: 1px solid #ffffff;
+  text-align: left;
+  padding: 8px;
+}

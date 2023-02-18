@@ -1,0 +1,49 @@
+.loginPageContainer {
+  height: 100dvh;
+  height: 100vh;
+}
+
+.loginPageContainer h2 {
+  margin-top: 3rem;
+  text-align: center;
+  color: #ffffff80;
+}
+
+.loginFormContainer {
+  margin-top: 8rem;
+  width: 25vw;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 36vw;
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+.loginFormContainer input {
+  width: 90%;
+  margin-right: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 20px;
+  padding: 0.5rem;
+}
+
+.loginFormContainer button {
+  background-color: #3c4043;
+  color: white;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.loginFormContainer button:hover {
+  background-color: #000000;
+}
+
+.loginFormContainer button:active {
+  background-color: #3c4043;
+}

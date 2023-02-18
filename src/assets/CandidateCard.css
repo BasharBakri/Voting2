@@ -1,0 +1,47 @@
+.CandidateCard {
+  background-color: white;
+  margin-left: 3rem;
+  margin-top: 7rem;
+  padding: 1rem;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 20px;
+  text-align: center;
+}
+
+
+.CandidateCard button {
+  background-color: #3c4043;
+  color: white;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.CandidateCard button:hover {
+  background-color: #000000;
+}
+
+.CandidateCard button:active {
+  background-color: #3c4043;
+}
+
+.CandidateCard img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+
+.CandidateCard a {
+  font-size: 0.6rem;
+  text-decoration: none;
+  margin-right: 1rem;
+  color: #6b7176;
+}

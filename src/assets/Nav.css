@@ -1,0 +1,34 @@
+.navBarContainer {
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+
+}
+
+.userName {
+  margin-top: 0.06rem;
+  font-size: 0.8rem;
+  color: #6b7176;
+}
+
+
+.navBarContainer button {
+  background-color: #3c4043;
+  color: #6b7176;
+  border-radius: 20px;
+  padding: 0.2rem 0.4rem;
+  cursor: pointer;
+  border: 0.5px solid black;
+  font-size: 0.7rem;
+  justify-self: end;
+  align-self: flex-end;
+}
+
+
+.navBarContainer button:hover {
+  background-color: black;
+}
+
+.navBarContainer button:active {
+  background-color: #3c4043;
+}
