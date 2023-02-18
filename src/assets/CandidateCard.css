@@ -39,7 +39,7 @@
 }
 
 
-.CandidateCard a {
+.CandidateCard span {
   font-size: 0.6rem;
   text-decoration: none;
   margin-right: 1rem;

@@ -4,5 +4,3 @@
 # voting
 # voting
 # voting
-# voting-assignment
-# Voting-mockup

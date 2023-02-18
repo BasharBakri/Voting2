@@ -2,14 +2,15 @@ import './ConfirmPage.css';
 
 
 
-export default function ConfirmPage() {
+export default function ConfirmPage(props) {
 
+  const handleVoteChange = () => {
+    props.onChange();
+  }
 
-
-
-
-
-
+  const handleDone = () => {
+    props.onConfirm();
+  }
 
   return (
     <div className='confrimPageContainer'>
@@ -17,8 +18,8 @@ export default function ConfirmPage() {
         <h3>Please confirm your vote!</h3>
         <p>You voted for:</p> <span>testcat</span>
         <div className='confirmButtonContainer' >
-          <button id='change' >Change Vote</button>
-          <button id='done' >Done</button>
+          <button onClick={handleVoteChange} id='change' >Change Vote</button>
+          <button onClick={handleDone} id='done' >Done</button>
         </div>
       </div>
     </div>

@@ -9,6 +9,12 @@
   color: #ffffff80;
 }
 
+.loginPageContainer p {
+  color: rgb(208, 88, 88);
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
 .loginFormContainer {
   margin-top: 8rem;
   width: 25vw;
