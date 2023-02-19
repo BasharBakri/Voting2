@@ -32,15 +32,16 @@ function CandidateCard(props) {
 
 
   const [name, setName] = useState('');
-  const [vote, setVote] = useState(0);
+  const [vote, setVote] = useState(parseInt(localStorage.getItem('voting')) || 0);
 
-  // useEffect(() => {
-  //   const count = window.localStorage.getItem('voting');
-  //   setVote(JSON.parse(count));
-  // })
-  // useEffect(() => {
-  //   setVote(window.localStorage.setItem('voting', JSON.stringify(vote)));
-  // }, [vote]);
+  useEffect(() => {
+    setVote(localStorage.setItem('voting', JSON.stringify(vote)));
+  }, [vote]);
+
+  useEffect(() => {
+    const count = localStorage.getItem('voting');
+    setVote(JSON.parse(count));
+  })
 
 
 
@@ -49,8 +50,9 @@ function CandidateCard(props) {
     console.log(candidateName);
     setVote(v => v + 1)
     console.log(vote);
-    // props.onVoting(candidateName);
-
+    setTimeout(() => {
+      props.onVoting(candidateName);
+    }, 500);
   };
 
   console.log(localStorage);

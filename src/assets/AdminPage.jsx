@@ -29,8 +29,8 @@ export default function AdminPage() {
           </thead>
           <tbody>
             <tr>
-              <td>{Math.round((1 / voterData.length) * 100)}%</td>
-              <td>1</td>
+              <td>{Math.round((window.localStorage.voting / voterData.length) * 100)}%</td>
+              <td>{window.localStorage.voting}</td>
             </tr>
           </tbody>
         </table>

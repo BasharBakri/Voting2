@@ -1,14 +1,36 @@
 import './ConfirmPage.css';
+import { useState, useEffect } from 'react';
 
 
 
 export default function ConfirmPage(props) {
 
+
+  let [vote, setVote] = useState(parseInt(localStorage.getItem('voting')) || 0);
+
+  useEffect(() => {
+    setVote(localStorage.setItem('voting', JSON.stringify(vote)));
+  }, [vote]);
+
+  useEffect(() => {
+    const count = localStorage.getItem('voting');
+    setVote(JSON.parse(count));
+  })
+
+
+
+
   const handleVoteChange = () => {
-    props.onChange();
+    setVote(v => v - 1)
+    console.log(vote);
+    setTimeout(() => {
+      props.onChange();
+    }, 500);
+
   }
 
   const handleDone = () => {
+
     props.onConfirm();
   }
 
