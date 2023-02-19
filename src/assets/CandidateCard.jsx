@@ -1,5 +1,5 @@
 import './CandidateCard.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function CandidateCard(props) {
   const candidateData = [
@@ -29,14 +29,31 @@ function CandidateCard(props) {
     },
   ];
 
+
+
   const [name, setName] = useState('');
+  const [vote, setVote] = useState(0);
+
+  // useEffect(() => {
+  //   const count = window.localStorage.getItem('voting');
+  //   setVote(JSON.parse(count));
+  // })
+  // useEffect(() => {
+  //   setVote(window.localStorage.setItem('voting', JSON.stringify(vote)));
+  // }, [vote]);
+
+
 
   const handleVoteCount = (candidateName) => {
     setName(candidateName);
     console.log(candidateName);
-    props.onVoting(candidateName);
+    setVote(v => v + 1)
+    console.log(vote);
+    // props.onVoting(candidateName);
 
   };
+
+  console.log(localStorage);
 
   const candidateCards = candidateData.map((candidate) => {
     return (
@@ -47,7 +64,7 @@ function CandidateCard(props) {
         <button onClick={() => handleVoteCount(candidate.name)}>Vote for Candidate!</button>
         <footer className='linkContainer'>
           <span>Current Number of votes</span>
-          <span>0</span>
+          <span>{vote}</span>
         </footer>
       </article>
     );
