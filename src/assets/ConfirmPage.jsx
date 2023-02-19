@@ -16,7 +16,7 @@ export default function ConfirmPage(props) {
     <div className='confrimPageContainer'>
       <div className='confirmformContainer'>
         <h3>Please confirm your vote!</h3>
-        <p>You voted for:</p> <span>testcat</span>
+        <p>You voted for:</p> <span>{props.votedCand}</span>
         <div className='confirmButtonContainer' >
           <button onClick={handleVoteChange} id='change' >Change Vote</button>
           <button onClick={handleDone} id='done' >Done</button>

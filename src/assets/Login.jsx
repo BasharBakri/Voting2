@@ -24,6 +24,8 @@ export default function Login(props) {
     const voter = voterData.find((voter) => voter.email.toLocaleLowerCase() === enteredEmail.toLocaleLowerCase() && voter.password === enteredPassword);
     if (voter) {
       props.onLogin();
+      props.onSaveUser(voter.name);
+      props.onSaveType(voter.type);
     }
     else { setEorrorMsg('Invalid login information. Please try again') }
   }

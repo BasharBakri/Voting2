@@ -29,29 +29,25 @@ function CandidateCard(props) {
     },
   ];
 
-  const [votes, setVotes] = useState({});
+  const [name, setName] = useState('');
 
-  const handleVoteCount = (id) => {
-    setVotes(prevState => {
-      const updatedVotes = { ...prevState };
-      updatedVotes[id] = (updatedVotes[id] || 0) + 1;
-      return updatedVotes;
-    });
-    props.onVoting();
+  const handleVoteCount = (candidateName) => {
+    setName(candidateName);
+    console.log(candidateName);
+    props.onVoting(candidateName);
 
   };
 
   const candidateCards = candidateData.map((candidate) => {
-    const candidateVotes = votes[candidate.id] || 0;
     return (
       <article key={candidate.id} className='CandidateCard'>
         <img src={candidate.src} alt={candidate.name} />
         <h3>{candidate.name}</h3>
         <p>{candidate.desc}</p>
-        <button onClick={() => handleVoteCount(candidate.id)}>Vote for Candidate!</button>
+        <button onClick={() => handleVoteCount(candidate.name)}>Vote for Candidate!</button>
         <footer className='linkContainer'>
           <span>Current Number of votes</span>
-          <span>{candidateVotes}</span>
+          <span>0</span>
         </footer>
       </article>
     );

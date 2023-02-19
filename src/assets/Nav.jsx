@@ -3,7 +3,7 @@ import './Nav.css';
 
 
 export default function Nav(props) {
-  let testUser = 'test user'
+
 
 
   const handleLogout = () => {
@@ -13,7 +13,7 @@ export default function Nav(props) {
 
   return (
     <nav className='navBarContainer'>
-      <div className='userName' >Username: {testUser}</div>
+      <div className='userName' >Username: {props.loggedUser}</div>
       <button type='submit' onClick={handleLogout} >Log Out</button>
     </nav>
   )

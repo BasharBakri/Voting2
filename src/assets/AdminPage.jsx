@@ -21,22 +21,30 @@ export default function AdminPage() {
     <main className='AdminContainer' >
       <div className='tableContainer'>
         <table>
-          <tr>
-            <th>Percentage of voters</th>
-            <th>Total Number of votes</th>
-          </tr>
-          <tr>
-            <td>35%</td>
-            <td>11</td>
-          </tr>
+          <thead>
+            <tr>
+              <th>Percentage of voters</th>
+              <th>Total Number of votes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{Math.round((1 / voterData.length) * 100)}%</td>
+              <td>1</td>
+            </tr>
+          </tbody>
         </table>
         <table>
-          <tr>
-            <th>Username</th>
-            <th>Email</th>
-            <th>has voted?</th>
-          </tr>
-          {tableData}
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Email</th>
+              <th>has voted?</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableData}
+          </tbody>
         </table>
       </div>
 

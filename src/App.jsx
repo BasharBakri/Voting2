@@ -17,12 +17,17 @@ function App() {
   const [showVoting, setShowVoting] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const [showAdmin, setShowAdmin] = useState(false);
+  const [loggedUser, setLoggedUser] = useState('');
+  const [loggedType, setLoggedType] = useState('');
+  const [votedCand, setVotedCand] = useState('');
 
   const handleLogin = () => {
     setShowLogin(false);
     setShowVoting(true);
   }
-  const handleVoting = () => {
+  const handleVoting = (candidateName) => {
+    let votedCandidate = candidateName;
+    setVotedCand(votedCandidate);
     setShowVoting(false);
     setShowConfirm(true);
   }
@@ -30,23 +35,38 @@ function App() {
     setShowConfirm(false);
     setShowVoting(true);
   }
-  const handleConfirm = () => {
-    setShowConfirm(false);
-    setShowAdmin(true);
-  }
   const handleLogout = () => {
     setShowConfirm(false);
     setShowAdmin(false);
     setShowVoting(false);
     setShowLogin(true);
+    setLoggedUser('');
   }
+  const handleConfirm = () => {
+    if (loggedType === 'admin') {
+      setShowConfirm(false);
+      setShowAdmin(true);
+    } else if (loggedType === 'user') {
+      handleLogout();
+    }
+  }
+
+  const saveUserName = (userName) => {
+    setLoggedUser(userName);
+  };
+  const saveType = (type) => {
+    setLoggedType(type);
+    console.log(type);
+  };
   return (
     <main className='mainContainer'>
-      {!showLogin && <Nav onLogout={handleLogout} />}
-      {showLogin && <Login onLogin={handleLogin} />}
+      {!showLogin && <Nav onLogout={handleLogout} loggedUser={loggedUser} />}
+      <section className='loginSection'>
+        {showLogin && <Login onLogin={handleLogin} onSaveUser={saveUserName} onSaveType={saveType} />}
+      </section>
       <section className='candidateSection'>
         {!showLogin && showVoting && <CandidateCard onVoting={handleVoting} />}
-        {!showLogin && showConfirm && <ConfirmPage onConfirm={handleConfirm} onChange={handleChange} />}
+        {!showLogin && showConfirm && <ConfirmPage onConfirm={handleConfirm} onChange={handleChange} votedCand={votedCand} />}
       </section>
       {!showLogin && showAdmin && <AdminPage />}
     </main>

@@ -16,14 +16,14 @@
 }
 
 .loginFormContainer {
-  margin-top: 8rem;
+  margin-top: 4rem;
   width: 25vw;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 36vw;
+  margin-left: 4rem;
   padding: 1rem;
   border-radius: 20px;
 }
