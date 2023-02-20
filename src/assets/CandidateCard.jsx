@@ -2,60 +2,63 @@ import './CandidateCard.css'
 import { useState, useEffect } from 'react';
 
 function CandidateCard(props) {
-  const candidateData = [
+  const [candidateData, setCandidateData] = useState([
     {
       id: 1,
       src: 'src/assets/imgs/monkey.jpg',
       name: 'Banana Mo',
       desc: 'More trees, more bananas, man!',
+      numberOfVotes: 0
     },
     {
       id: 2,
       src: 'src/assets/imgs/turtle.jpg',
       name: 'Turbo Turt',
-      desc: 'Speed limit increase for everyone!'
+      desc: 'Speed limit increase for everyone!',
+      numberOfVotes: 0
     },
     {
       id: 3,
       src: 'src/assets/imgs/cat.jpg',
       name: 'Colt Kitty',
       desc: 'Naptime for all!',
+      numberOfVotes: 0
     },
     {
       id: 4,
       src: 'src/assets/imgs/owl.jpg',
       name: 'Owcturnal',
       desc: 'Nighttime school!',
+      numberOfVotes: 0
     },
-  ];
-
-
-
-  const [name, setName] = useState('');
-  const [vote, setVote] = useState(parseInt(localStorage.getItem('voting')) || 0);
+  ]);
 
   useEffect(() => {
-    setVote(localStorage.setItem('voting', JSON.stringify(vote)));
-  }, [vote]);
-
-  useEffect(() => {
-    const count = localStorage.getItem('voting');
-    setVote(JSON.parse(count));
-  })
+    const storedData = JSON.parse(localStorage.getItem('candidateData'));
+    if (storedData) {
+      setCandidateData(storedData);
+    }
+  }, []);
 
 
 
-  const handleVoteCount = (candidateName) => {
-    setName(candidateName);
-    console.log(candidateName);
-    setVote(v => v + 1)
-    console.log(vote);
-    setTimeout(() => {
-      props.onVoting(candidateName);
-    }, 500);
+
+
+  const handleVoteCount = (candidate) => {
+    const updatedCandidates = candidateData.map((cand) =>
+      cand.name === candidate.name
+        ? { ...cand, numberOfVotes: candidate.numberOfVotes + 1 }
+        : { ...cand }
+    );
+
+    setCandidateData(updatedCandidates);
+    localStorage.setItem('candidateData', JSON.stringify(updatedCandidates));
+    console.log(candidate);
+    props.onVoting(candidate.name, candidate.numberOfVotes);
+
   };
 
-  console.log(localStorage);
+
 
   const candidateCards = candidateData.map((candidate) => {
     return (
@@ -63,10 +66,10 @@ function CandidateCard(props) {
         <img src={candidate.src} alt={candidate.name} />
         <h3>{candidate.name}</h3>
         <p>{candidate.desc}</p>
-        <button onClick={() => handleVoteCount(candidate.name)}>Vote for Candidate!</button>
+        <button onClick={() => handleVoteCount(candidate)}>Vote for Candidate!</button>
         <footer className='linkContainer'>
           <span>Current Number of votes</span>
-          <span>{vote}</span>
+          <span>{candidate.numberOfVotes}</span>
         </footer>
       </article>
     );

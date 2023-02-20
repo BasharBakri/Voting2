@@ -1,11 +1,20 @@
 import './AdminPage.css';
+import CandidateCard from './CandidateCard';
 import { voterData } from './voterData';
 
 export default function AdminPage() {
 
+  let jsonData = window.localStorage.getItem('candidateData');
+
+  let storedData = JSON.parse(jsonData);
+  console.log(storedData);
+
+  let totalVotes = storedData[0].numberOfVotes + storedData[1].numberOfVotes + storedData[2].numberOfVotes + storedData[3].numberOfVotes;
+  console.log(totalVotes);
+
 
   const tableData = voterData.map((voter) => {
-    return <tr>
+    return <tr key={voter.email}>
       <td>{voter.name}</td>
       <td>{voter.email}</td>
       <td><input type="checkbox" name="hasVoted" id="" /></td>
@@ -29,8 +38,8 @@ export default function AdminPage() {
           </thead>
           <tbody>
             <tr>
-              <td>{Math.round((window.localStorage.voting / voterData.length) * 100)}%</td>
-              <td>{window.localStorage.voting}</td>
+              <td>{Math.round((totalVotes / voterData.length) * 100)}%</td>
+              <td>{totalVotes}</td>
             </tr>
           </tbody>
         </table>

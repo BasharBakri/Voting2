@@ -20,14 +20,15 @@ function App() {
   const [loggedUser, setLoggedUser] = useState('');
   const [loggedType, setLoggedType] = useState('');
   const [votedCand, setVotedCand] = useState('');
+  const [votesofCand, setVotesOfCand] = useState('');
 
   const handleLogin = () => {
     setShowLogin(false);
     setShowVoting(true);
   }
-  const handleVoting = (candidateName) => {
-    let votedCandidate = candidateName;
-    setVotedCand(votedCandidate);
+  const handleVoting = (candidateName, numberOfVotes) => {
+    setVotesOfCand(numberOfVotes)
+    setVotedCand(candidateName);
     setShowVoting(false);
     setShowConfirm(true);
   }
@@ -66,7 +67,7 @@ function App() {
       </section>
       <section className='candidateSection'>
         {!showLogin && showVoting && <CandidateCard onVoting={handleVoting} />}
-        {!showLogin && showConfirm && <ConfirmPage onConfirm={handleConfirm} onChange={handleChange} votedCand={votedCand} />}
+        {!showLogin && showConfirm && <ConfirmPage onConfirm={handleConfirm} onChange={handleChange} votedCand={votedCand} noOfTheirVote={votesofCand} />}
       </section>
       {!showLogin && showAdmin && <AdminPage />}
     </main>

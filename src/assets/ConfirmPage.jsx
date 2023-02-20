@@ -5,24 +5,16 @@ import { useState, useEffect } from 'react';
 
 export default function ConfirmPage(props) {
 
+  let jsonData = window.localStorage.getItem('candidateData');
 
-  let [vote, setVote] = useState(parseInt(localStorage.getItem('voting')) || 0);
+  let storedData = JSON.parse(jsonData);
+  console.log(props.votedCand);
 
-  useEffect(() => {
-    setVote(localStorage.setItem('voting', JSON.stringify(vote)));
-  }, [vote]);
-
-  useEffect(() => {
-    const count = localStorage.getItem('voting');
-    setVote(JSON.parse(count));
-  })
-
-
-
+  let votedCandidate = storedData.find((candidate) => candidate.name === props.votedCand)
+  console.log(votedCandidate);
 
   const handleVoteChange = () => {
-    setVote(v => v - 1)
-    console.log(vote);
+    props.noOfTheirVote - 1
     setTimeout(() => {
       props.onChange();
     }, 500);
@@ -39,6 +31,7 @@ export default function ConfirmPage(props) {
       <div className='confirmformContainer'>
         <h3>Please confirm your vote!</h3>
         <p>You voted for:</p> <span>{props.votedCand}</span>
+        <p>Number of votes for {props.votedCand}: {props.noOfTheirVote + 1}</p>
         <div className='confirmButtonContainer' >
           <button onClick={handleVoteChange} id='change' >Change Vote</button>
           <button onClick={handleDone} id='done' >Done</button>
