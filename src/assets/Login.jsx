@@ -27,8 +27,8 @@ export default function Login(props) {
       props.onSaveUser(voter.name);
       props.onSaveType(voter.type);
     }
-    else { setEorrorMsg('Invalid login information. Please try again') }
-  }
+    else { setEorrorMsg('Invalid login information. Please try again'); }
+  };
 
 
   return (
@@ -52,5 +52,5 @@ export default function Login(props) {
         <p>{errorMsg}</p>
       </div>
     </div>
-  )
+  );
 }

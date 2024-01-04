@@ -18,8 +18,8 @@ export default function AdminPage() {
       <td>{voter.name}</td>
       <td>{voter.email}</td>
       <td><input type="checkbox" name="hasVoted" id="" /></td>
-    </tr>
-  })
+    </tr>;
+  });
 
 
 
@@ -58,5 +58,5 @@ export default function AdminPage() {
       </div>
 
     </main>
-  </>)
+  </>);
 }

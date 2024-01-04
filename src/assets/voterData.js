@@ -179,4 +179,4 @@ export const voterData = [
     type: 'admin',
     email: 'Tomas19@aol.com'
   }
-]
+];

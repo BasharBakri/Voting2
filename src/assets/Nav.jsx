@@ -8,7 +8,7 @@ export default function Nav(props) {
 
   const handleLogout = () => {
     props.onLogout();
-  }
+  };
 
 
   return (
@@ -16,5 +16,5 @@ export default function Nav(props) {
       <div className='userName' >Username: {props.loggedUser}</div>
       <button type='submit' onClick={handleLogout} >Log Out</button>
     </nav>
-  )
+  );
 }

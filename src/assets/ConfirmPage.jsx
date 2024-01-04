@@ -5,26 +5,26 @@ import { useState, useEffect } from 'react';
 
 export default function ConfirmPage(props) {
 
-  let jsonData = window.localStorage.getItem('candidateData');
+  const jsonData = window.localStorage.getItem('candidateData');
 
-  let storedData = JSON.parse(jsonData);
+  const storedData = JSON.parse(jsonData);
   console.log(props.votedCand);
 
-  let votedCandidate = storedData.find((candidate) => candidate.name === props.votedCand)
+  let votedCandidate = storedData.find((candidate) => candidate.name === props.votedCand);
   console.log(votedCandidate);
 
   const handleVoteChange = () => {
-    props.noOfTheirVote - 1
+    props.noOfTheirVote - 1;
     setTimeout(() => {
       props.onChange();
     }, 500);
 
-  }
+  };
 
   const handleDone = () => {
 
     props.onConfirm();
-  }
+  };
 
   return (
     <div className='confrimPageContainer'>
@@ -38,5 +38,5 @@ export default function ConfirmPage(props) {
         </div>
       </div>
     </div>
-  )
+  );
 }

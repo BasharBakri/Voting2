@@ -1,4 +1,4 @@
-import './CandidateCard.css'
+import './CandidateCard.css';
 import { useState, useEffect } from 'react';
 
 function CandidateCard(props) {

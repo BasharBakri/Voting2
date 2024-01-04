@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import './App.css'
-import Login from './assets/login'
-import Nav from './assets/Nav'
-import CandidateCard from './assets/CandidateCard'
-import ConfirmPage from './assets/ConfirmPage'
-import AdminPage from './assets/AdminPage'
+import { useState } from 'react';
+import './App.css';
+import Login from './assets/login';
+import Nav from './assets/Nav';
+import CandidateCard from './assets/CandidateCard';
+import ConfirmPage from './assets/ConfirmPage';
+import AdminPage from './assets/AdminPage';
 
 function App() {
   // name: 'Tyler-James',
@@ -25,24 +25,24 @@ function App() {
   const handleLogin = () => {
     setShowLogin(false);
     setShowVoting(true);
-  }
+  };
   const handleVoting = (candidateName, numberOfVotes) => {
-    setVotesOfCand(numberOfVotes)
+    setVotesOfCand(numberOfVotes);
     setVotedCand(candidateName);
     setShowVoting(false);
     setShowConfirm(true);
-  }
+  };
   const handleChange = () => {
     setShowConfirm(false);
     setShowVoting(true);
-  }
+  };
   const handleLogout = () => {
     setShowConfirm(false);
     setShowAdmin(false);
     setShowVoting(false);
     setShowLogin(true);
     setLoggedUser('');
-  }
+  };
   const handleConfirm = () => {
     if (loggedType === 'admin') {
       setShowConfirm(false);
@@ -50,7 +50,7 @@ function App() {
     } else if (loggedType === 'user') {
       handleLogout();
     }
-  }
+  };
 
   const saveUserName = (userName) => {
     setLoggedUser(userName);
@@ -71,8 +71,8 @@ function App() {
       </section>
       {!showLogin && showAdmin && <AdminPage />}
     </main>
-  )
+  );
 
 }
 
-export default App
+export default App;
